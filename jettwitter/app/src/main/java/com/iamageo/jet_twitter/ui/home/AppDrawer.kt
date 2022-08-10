@@ -14,6 +14,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -34,7 +35,7 @@ fun AppDrawer() {
                         .size(50.dp)
                         .clip(shape = RoundedCornerShape(25.dp)),
                     contentScale = ContentScale.Crop,
-                    contentDescription = "Profile"
+                    contentDescription = stringResource(id = R.string.drawer_description_icon_profile)
                 )
                 Spacer(modifier = Modifier.size(2.dp))
                 UserInfo(user = User(
@@ -52,19 +53,19 @@ fun AppDrawer() {
             Divider()
             Column() {
                 DrawerItem(
-                    text = "Perfil",
+                    text = stringResource(id = R.string.drawer_profile),
                     icon = R.drawable.ic_profile_24,
                 )
                 DrawerItem(
-                    text = "Listas",
+                    text = stringResource(id = R.string.drawer_lists),
                     icon = R.drawable.ic_list_24,
                 )
                 DrawerItem(
-                    text = "Tópicos",
+                    text = stringResource(id = R.string.drawer_topics),
                     icon = R.drawable.ic_topics_24
                 )
                 DrawerItem(
-                    text = "Itens Salvos",
+                    text = stringResource(id = R.string.drawer_items_saved),
                     icon = R.drawable.ic_bookmark_24
                 )
             }
@@ -72,13 +73,13 @@ fun AppDrawer() {
             Column(modifier = Modifier.padding(start = 16.dp, end = 16.dp)) {
                 Spacer(modifier = Modifier.height(16.dp))
                 Text(
-                    text = "Configurações e privacidade",
-                    style = TextStyle(fontSize = 18.sp)
+                    text = stringResource(id = R.string.drawer_policy_and_privacy),
+                    style = TextStyle(fontSize = 14.sp)
                 )
                 Spacer(modifier = Modifier.height(16.dp))
                 Text(
-                    text = "Central de Ajuda",
-                    style = TextStyle(fontSize = 18.sp)
+                    text = stringResource(id = R.string.drawer_help_center),
+                    style = TextStyle(fontSize = 14.sp)
                 )
             }
             Spacer(modifier = Modifier.weight(weight = 1f))

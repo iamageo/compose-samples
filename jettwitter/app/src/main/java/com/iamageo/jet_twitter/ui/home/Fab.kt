@@ -4,6 +4,7 @@ import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import com.iamageo.jet_twitter.R
 import com.iamageo.jet_twitter.ui.theme.TwitterBlue
 
@@ -15,7 +16,7 @@ fun Fab() {
     ) {
         Icon(
             painter = painterResource(id = R.drawable.ic_add_24),
-            contentDescription = "Icon add tweet"
+            contentDescription = stringResource(id = R.string.fab_icon),
         )
     }
 }

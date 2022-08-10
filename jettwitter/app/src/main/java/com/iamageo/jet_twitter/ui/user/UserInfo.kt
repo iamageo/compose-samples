@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -50,7 +51,7 @@ fun UserInfo(user: User) {
             style = TextStyle(fontWeight = FontWeight.Bold)
         )
         Text(
-            text = "Seguindo",
+            text = stringResource(id = R.string.profile_description_following),
             style = TextStyle(fontSize = 14.sp)
         )
         Spacer(modifier = Modifier.size(24.dp))
@@ -59,7 +60,7 @@ fun UserInfo(user: User) {
             style = TextStyle(fontWeight = FontWeight.Bold)
         )
         Text(
-            text = "Seguidores",
+            text = stringResource(id = R.string.profile_description_followers),
             style = TextStyle(fontSize = 14.sp)
         )
 

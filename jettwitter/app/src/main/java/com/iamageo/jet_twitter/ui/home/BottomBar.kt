@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.iamageo.jet_twitter.R
 
@@ -37,7 +38,7 @@ private fun BottomBarIcon(icon: Int) {
         Image(
             painter = painterResource(id = icon),
             modifier = Modifier.size(24.dp),
-            contentDescription = "Icon $icon of bottombar"
+            contentDescription = stringResource(id = R.string.bottom_app_bar_icon_description)
         )
     }
 }
