@@ -15,9 +15,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.iamageo.jet_twitter.R
 import com.iamageo.jet_twitter.data.model.User
+import com.iamageo.jet_twitter.ui.profile.AdditionalInfoItem
 
 @Composable
-fun UserInfo(user: User) {
+fun UserInfo(user: User, showBio: Boolean, showAdditionalInfo: Boolean, showLogoutButton: Boolean) {
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween,
@@ -26,16 +27,39 @@ fun UserInfo(user: User) {
         Column() {
             Text(
                 text = user.name,
-                style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 18.sp)
+                style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 16.sp)
             )
             Text(text = "@${user.username}", fontSize = 12.sp)
+            if (showBio) {
+                Text(
+                    modifier = Modifier.padding(vertical = 8.dp),
+                    text = user.bio,
+                    style = TextStyle(fontSize = 13.sp)
+                )
+            }
+            if (showAdditionalInfo) {
+                Row() {
+                    AdditionalInfoItem(
+                        isUrl = true,
+                        icon = R.drawable.ic_link_24,
+                        infoTitle = "github.com/iamageo"
+                    )
+                    AdditionalInfoItem(
+                        isUrl = false,
+                        icon = R.drawable.ic_calendar_24,
+                        infoTitle = "Entrou em outubro de 2017"
+                    )
+                }
+            }
         }
-        IconButton(onClick = {}) {
-            Image(
-                painter = painterResource(id = R.drawable.ic_arrow_down_24),
-                modifier = Modifier.size(24.dp),
-                contentDescription = "Logout button"
-            )
+        if (showLogoutButton) {
+            IconButton(onClick = {}) {
+                Image(
+                    painter = painterResource(id = R.drawable.ic_arrow_down_24),
+                    modifier = Modifier.size(24.dp),
+                    contentDescription = "Logout button"
+                )
+            }
         }
     }
 
@@ -52,7 +76,7 @@ fun UserInfo(user: User) {
         )
         Text(
             text = stringResource(id = R.string.profile_description_following),
-            style = TextStyle(fontSize = 14.sp)
+            style = TextStyle(fontSize = 12.sp)
         )
         Spacer(modifier = Modifier.size(24.dp))
         Text(
@@ -61,7 +85,7 @@ fun UserInfo(user: User) {
         )
         Text(
             text = stringResource(id = R.string.profile_description_followers),
-            style = TextStyle(fontSize = 14.sp)
+            style = TextStyle(fontSize = 12.sp)
         )
 
     }

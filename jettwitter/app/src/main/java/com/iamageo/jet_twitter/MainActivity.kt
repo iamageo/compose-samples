@@ -42,24 +42,13 @@ fun JetTwitterAppContent() {
     val scope = rememberCoroutineScope()
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = "profile"){
+    NavHost(navController = navController, startDestination = "home"){
             composable("home") {
                 Home(scope, state, navController)
             }
             composable("profile") {
-                Profile()
+                Profile(navController)
             }
     }
 
-    /*
-    Crossfade(AppState.currentScreen) { screen ->
-        Surface(color = MaterialTheme.colors.background) {
-            when (screen) {
-                is Screen.Home -> Home(scope, state)
-                is Screen.Profile -> Profile()
-            }
-        }
-    }
-
-     */
 }

@@ -51,7 +51,9 @@ fun AppDrawer(navController: NavController) {
                         followers = 33,
                         verified = false,
                     ),
-                    showLogoutButton = true
+                    showLogoutButton = true,
+                    showBio = false,
+                    showAdditionalInfo = false,
                 )
                 Spacer(modifier = Modifier.size(16.dp))
             }
