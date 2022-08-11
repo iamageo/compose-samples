@@ -1,9 +1,9 @@
 package com.iamageo.jet_twitter.ui.home
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Button
 import androidx.compose.material.Divider
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -16,16 +16,15 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.iamageo.jet_twitter.R
 import com.iamageo.jet_twitter.data.model.User
-import com.iamageo.jet_twitter.state.AppState
 import com.iamageo.jet_twitter.ui.user.UserInfo
 
 @Composable
-fun AppDrawer() {
+fun AppDrawer(navController: NavController) {
     Surface(color = Color.White) {
         Column {
             Column(modifier = Modifier.padding(start = 16.dp, top = 16.dp, end = 16.dp)) {
@@ -33,21 +32,27 @@ fun AppDrawer() {
                     painter = painterResource(R.drawable.profile),
                     modifier = Modifier
                         .size(50.dp)
-                        .clip(shape = RoundedCornerShape(25.dp)),
+                        .clip(shape = RoundedCornerShape(25.dp))
+                        .clickable(
+                            onClick = { navController.navigate("profile") }
+                        ),
                     contentScale = ContentScale.Crop,
                     contentDescription = stringResource(id = R.string.drawer_description_icon_profile)
                 )
                 Spacer(modifier = Modifier.size(2.dp))
-                UserInfo(user = User(
-                    name = "Geovani 🥦",
-                    username = "iamageo",
-                    avatar = 0,
-                    banner = 0,
-                    bio = "I love coding!",
-                    following = 31,
-                    followers = 33,
-                    verified = false,
-                ))
+                UserInfo(
+                    user = User(
+                        name = "Geovani 🥦",
+                        username = "iamageo",
+                        avatar = 0,
+                        banner = 0,
+                        bio = "I love coding!",
+                        following = 31,
+                        followers = 33,
+                        verified = false,
+                    ),
+                    showLogoutButton = true
+                )
                 Spacer(modifier = Modifier.size(16.dp))
             }
             Divider()
@@ -90,9 +95,11 @@ fun AppDrawer() {
 
 @Composable
 fun DrawerItem(text: String, icon: Int) {
-    Row(modifier = Modifier
-        .fillMaxWidth()
-        .padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp), verticalAlignment = Alignment.CenterVertically
+    ) {
         Image(
             painter = painterResource(id = icon),
             modifier = Modifier.size(24.dp),
