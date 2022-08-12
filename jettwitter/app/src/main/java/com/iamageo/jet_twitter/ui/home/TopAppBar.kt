@@ -1,14 +1,11 @@
 package com.iamageo.jet_twitter.ui.home
 
-import android.provider.Settings.Global.getString
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.DrawerState
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.TopAppBar
-import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -52,7 +49,7 @@ fun TopAppBar(coroutineScope: CoroutineScope, scaffoldState: ScaffoldState) {
                 contentDescription = stringResource(id = R.string.top_app_bar_description_icon_logo),
             )
             Image(
-                painter = painterResource(id = R.drawable.ic_star_24),
+                painter = painterResource(id = R.drawable.ic_trends),
                 modifier = Modifier.size(24.dp),
                 contentDescription = stringResource(id = R.string.top_app_bar_description_icon_trends),
             )

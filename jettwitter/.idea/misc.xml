@@ -4,6 +4,26 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Geovani/AndroidStudioProjects/compose-samples/jettwitter/app/src/main/res/drawable/ic_add_24.xml" value="0.107" />
+        <entry key="..\:/Users/Geovani/AndroidStudioProjects/compose-samples/jettwitter/app/src/main/res/drawable/ic_bookmark.xml" value="0.1115" />
+        <entry key="..\:/Users/Geovani/AndroidStudioProjects/compose-samples/jettwitter/app/src/main/res/drawable/ic_calendar.xml" value="0.1115" />
+        <entry key="..\:/Users/Geovani/AndroidStudioProjects/compose-samples/jettwitter/app/src/main/res/drawable/ic_chats_24.xml" value="0.1115" />
+        <entry key="..\:/Users/Geovani/AndroidStudioProjects/compose-samples/jettwitter/app/src/main/res/drawable/ic_community.xml" value="0.2185" />
+        <entry key="..\:/Users/Geovani/AndroidStudioProjects/compose-samples/jettwitter/app/src/main/res/drawable/ic_community_24.xml" value="0.2185" />
+        <entry key="..\:/Users/Geovani/AndroidStudioProjects/compose-samples/jettwitter/app/src/main/res/drawable/ic_dm.xml" value="0.1115" />
+        <entry key="..\:/Users/Geovani/AndroidStudioProjects/compose-samples/jettwitter/app/src/main/res/drawable/ic_home.xml" value="0.1115" />
+        <entry key="..\:/Users/Geovani/AndroidStudioProjects/compose-samples/jettwitter/app/src/main/res/drawable/ic_link.xml" value="0.2185" />
+        <entry key="..\:/Users/Geovani/AndroidStudioProjects/compose-samples/jettwitter/app/src/main/res/drawable/ic_link_24.xml" value="0.2185" />
+        <entry key="..\:/Users/Geovani/AndroidStudioProjects/compose-samples/jettwitter/app/src/main/res/drawable/ic_list.xml" value="0.1115" />
+        <entry key="..\:/Users/Geovani/AndroidStudioProjects/compose-samples/jettwitter/app/src/main/res/drawable/ic_logo.xml" value="0.2185" />
+        <entry key="..\:/Users/Geovani/AndroidStudioProjects/compose-samples/jettwitter/app/src/main/res/drawable/ic_moments.xml" value="0.1115" />
+        <entry key="..\:/Users/Geovani/AndroidStudioProjects/compose-samples/jettwitter/app/src/main/res/drawable/ic_notifications.xml" value="0.1115" />
+        <entry key="..\:/Users/Geovani/AndroidStudioProjects/compose-samples/jettwitter/app/src/main/res/drawable/ic_pen.xml" value="0.1115" />
+        <entry key="..\:/Users/Geovani/AndroidStudioProjects/compose-samples/jettwitter/app/src/main/res/drawable/ic_profile.xml" value="0.2185" />
+        <entry key="..\:/Users/Geovani/AndroidStudioProjects/compose-samples/jettwitter/app/src/main/res/drawable/ic_profile_24.xml" value="0.2185" />
+        <entry key="..\:/Users/Geovani/AndroidStudioProjects/compose-samples/jettwitter/app/src/main/res/drawable/ic_rocket.xml" value="0.2185" />
+        <entry key="..\:/Users/Geovani/AndroidStudioProjects/compose-samples/jettwitter/app/src/main/res/drawable/ic_search.xml" value="0.1115" />
+        <entry key="..\:/Users/Geovani/AndroidStudioProjects/compose-samples/jettwitter/app/src/main/res/drawable/ic_topics.xml" value="0.1115" />
+        <entry key="..\:/Users/Geovani/AndroidStudioProjects/compose-samples/jettwitter/app/src/main/res/drawable/ic_trends.xml" value="0.1115" />
       </map>
     </option>
   </component>

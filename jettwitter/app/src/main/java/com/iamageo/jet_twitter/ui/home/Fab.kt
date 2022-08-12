@@ -15,7 +15,7 @@ fun Fab() {
         onClick = { },
     ) {
         Icon(
-            painter = painterResource(id = R.drawable.ic_add_24),
+            painter = painterResource(id = R.drawable.ic_pen),
             contentDescription = stringResource(id = R.string.fab_icon),
         )
     }

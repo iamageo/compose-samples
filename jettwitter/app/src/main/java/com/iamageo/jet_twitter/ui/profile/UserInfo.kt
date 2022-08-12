@@ -41,12 +41,12 @@ fun UserInfo(user: User, showBio: Boolean, showAdditionalInfo: Boolean, showLogo
                 Row() {
                     AdditionalInfoItem(
                         isUrl = true,
-                        icon = R.drawable.ic_link_24,
+                        icon = R.drawable.ic_link,
                         infoTitle = "github.com/iamageo"
                     )
                     AdditionalInfoItem(
                         isUrl = false,
-                        icon = R.drawable.ic_calendar_24,
+                        icon = R.drawable.ic_calendar,
                         infoTitle = "Entrou em outubro de 2017"
                     )
                 }

@@ -23,11 +23,11 @@ fun BottomBar() {
             modifier = Modifier.weight(1f),
             horizontalArrangement = Arrangement.SpaceAround
         ) {
-            BottomBarIcon(R.drawable.ic_home_24)
-            BottomBarIcon(R.drawable.ic_search_24)
-            BottomBarIcon(R.drawable.ic_community_24)
-            BottomBarIcon(R.drawable.ic_notifications_24)
-            BottomBarIcon(R.drawable.ic_chats_24)
+            BottomBarIcon(R.drawable.ic_home)
+            BottomBarIcon(R.drawable.ic_search)
+            BottomBarIcon(R.drawable.ic_community)
+            BottomBarIcon(R.drawable.ic_notifications)
+            BottomBarIcon(R.drawable.ic_dm)
         }
     }
 }
