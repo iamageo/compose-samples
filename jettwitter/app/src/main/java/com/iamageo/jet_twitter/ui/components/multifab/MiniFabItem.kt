@@ -11,7 +11,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.iamageo.jet_twitter.ui.theme.TwitterBlue
+import com.iamageo.jet_twitter.theme.TwitterBlue
 
 @Composable
 fun MiniFabItem(

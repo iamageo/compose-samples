@@ -15,7 +15,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.iamageo.jet_twitter.ui.home.Home
 import com.iamageo.jet_twitter.ui.profile.Profile
-import com.iamageo.jet_twitter.ui.theme.JettwitterTheme
+import com.iamageo.jet_twitter.theme.JettwitterTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

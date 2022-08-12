@@ -6,7 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import com.iamageo.jet_twitter.R
-import com.iamageo.jet_twitter.ui.theme.TwitterBlue
+import com.iamageo.jet_twitter.theme.TwitterBlue
 
 @Composable
 fun Fab() {

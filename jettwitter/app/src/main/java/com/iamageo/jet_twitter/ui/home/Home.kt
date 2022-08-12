@@ -8,7 +8,7 @@ import androidx.navigation.NavHostController
 import kotlinx.coroutines.CoroutineScope
 import com.iamageo.jet_twitter.R
 import com.iamageo.jet_twitter.ui.components.multifab.*
-import com.iamageo.jet_twitter.ui.theme.TwitterBlue
+import com.iamageo.jet_twitter.theme.TwitterBlue
 
 
 @Composable

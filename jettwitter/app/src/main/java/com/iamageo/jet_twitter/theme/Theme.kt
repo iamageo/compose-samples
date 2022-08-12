@@ -1,4 +1,4 @@
-package com.iamageo.jet_twitter.ui.theme
+package com.iamageo.jet_twitter.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
