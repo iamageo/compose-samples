@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.iamageo.jet_twitter.R
 import com.iamageo.jet_twitter.data.model.User
-import com.iamageo.jet_twitter.ui.user.UserInfo
+import com.iamageo.jet_twitter.ui.profile.UserInfo
 
 @Composable
 fun AppDrawer(navController: NavController) {

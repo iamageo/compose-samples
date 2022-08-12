@@ -1,9 +1,8 @@
-package com.iamageo.jet_twitter.ui.user
+package com.iamageo.jet_twitter.ui.profile
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.IconButton
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -15,7 +14,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.iamageo.jet_twitter.R
 import com.iamageo.jet_twitter.data.model.User
-import com.iamageo.jet_twitter.ui.profile.AdditionalInfoItem
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 
 @Composable
 fun UserInfo(user: User, showBio: Boolean, showAdditionalInfo: Boolean, showLogoutButton: Boolean) {
@@ -53,7 +53,9 @@ fun UserInfo(user: User, showBio: Boolean, showAdditionalInfo: Boolean, showLogo
             }
         }
         if (showLogoutButton) {
-            IconButton(onClick = {}) {
+            IconButton(onClick = {
+                //call bottomsheet here
+            }) {
                 Image(
                     painter = painterResource(id = R.drawable.ic_arrow_down_24),
                     modifier = Modifier.size(24.dp),
