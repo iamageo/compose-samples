@@ -1,4 +1,4 @@
-package com.iamageo.jet_twitter.ui.profile
+package com.iamageo.jet_twitter.ui.components.user
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -14,8 +14,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.iamageo.jet_twitter.R
 import com.iamageo.jet_twitter.data.model.User
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.launch
+import com.iamageo.jet_twitter.ui.profile.AdditionalInfoItem
 
 @Composable
 fun UserInfo(user: User, showBio: Boolean, showAdditionalInfo: Boolean, showLogoutButton: Boolean) {

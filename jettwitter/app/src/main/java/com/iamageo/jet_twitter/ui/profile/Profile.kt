@@ -2,6 +2,7 @@ package com.iamageo.jet_twitter.ui.profile
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Divider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.layoutId
@@ -9,8 +10,11 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintSet
 import androidx.navigation.NavController
+import com.google.accompanist.pager.ExperimentalPagerApi
 import com.iamageo.jet_twitter.data.model.User
+import com.iamageo.jet_twitter.ui.components.tablayout.TabLayout
 
+@OptIn(ExperimentalPagerApi::class)
 @Composable
 fun Profile(navController: NavController) {
     val constraints = ConstraintSet {
@@ -18,6 +22,7 @@ fun Profile(navController: NavController) {
         val profileTopBar = createRefFor("profile_top_bar")
         val profileAvatar = createRefFor("profile_avatar")
         val profileUserContent = createRefFor("profile_user_content")
+        val tabLayout = createRefFor("tablayout")
 
         constrain(profileBanner) {
             top.linkTo(parent.top)
@@ -42,6 +47,14 @@ fun Profile(navController: NavController) {
             start.linkTo(parent.start)
             end.linkTo(parent.end)
         }
+
+        constrain(tabLayout) {
+            top.linkTo(profileUserContent.bottom)
+            start.linkTo(parent.start)
+            end.linkTo(parent.end)
+        }
+
+
     }
     ConstraintLayout(
         constraints,
@@ -71,6 +84,7 @@ fun Profile(navController: NavController) {
                 verified = false,
             )
         )
+        TabLayout(modifier = Modifier.layoutId("tablayout"))
 
     }
 

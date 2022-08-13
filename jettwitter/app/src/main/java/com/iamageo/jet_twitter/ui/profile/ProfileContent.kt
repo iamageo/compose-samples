@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.iamageo.jet_twitter.data.model.User
+import com.iamageo.jet_twitter.ui.components.user.UserInfo
 
 @Composable
 fun ProfileContent(modifier: Modifier = Modifier, user: User) {

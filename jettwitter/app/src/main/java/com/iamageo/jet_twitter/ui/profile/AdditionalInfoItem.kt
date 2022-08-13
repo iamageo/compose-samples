@@ -14,6 +14,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.iamageo.jet_twitter.theme.TwitterBlue
 
 @Composable
 fun AdditionalInfoItem(
@@ -27,11 +28,11 @@ fun AdditionalInfoItem(
         modifier = modifier,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Icon(painter = painterResource(id = icon), "", tint = Color.Black)
+        Icon(painter = painterResource(id = icon), "", tint = Color.Black, modifier = modifier.width(16.dp))
         Text(
             modifier = Modifier.padding(start = 2.dp),
             text = infoTitle,
-            style = TextStyle(fontSize = 12.sp, color = if (isUrl) Color.Blue else Color.Gray)
+            style = TextStyle(fontSize = 12.sp, color = if (isUrl) TwitterBlue else Color.Gray)
         )
         Spacer(modifier = Modifier.width(8.dp))
     }
