@@ -2,7 +2,6 @@ package com.iamageo.jet_twitter.ui.profile
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Divider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.layoutId
@@ -23,6 +22,7 @@ fun Profile(navController: NavController) {
         val profileAvatar = createRefFor("profile_avatar")
         val profileUserContent = createRefFor("profile_user_content")
         val tabLayout = createRefFor("tablayout")
+        val profileButton = createRefFor("profile_button")
 
         constrain(profileBanner) {
             top.linkTo(parent.top)
@@ -54,6 +54,11 @@ fun Profile(navController: NavController) {
             end.linkTo(parent.end)
         }
 
+        constrain(profileButton) {
+            top.linkTo(profileBanner.bottom)
+            end.linkTo(parent.end)
+        }
+
 
     }
     ConstraintLayout(
@@ -71,6 +76,7 @@ fun Profile(navController: NavController) {
                 .layoutId("profile_avatar")
                 .padding(horizontal = 16.dp, vertical = 0.dp)
         )
+        ProfileButton(modifier = Modifier.layoutId("profile_button"), isMyProfile = true)
         ProfileContent(
             modifier = Modifier.layoutId("profile_user_content"),
             user = User(
