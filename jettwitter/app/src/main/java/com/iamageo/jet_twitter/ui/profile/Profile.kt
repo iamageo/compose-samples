@@ -15,7 +15,7 @@ import com.iamageo.jet_twitter.ui.components.tablayout.TabLayout
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun Profile(navController: NavController) {
+fun Profile(navController: NavController, user: User) {
     val constraints = ConstraintSet {
         val profileBanner = createRefFor("profile_banner")
         val profileTopBar = createRefFor("profile_top_bar")
@@ -66,7 +66,7 @@ fun Profile(navController: NavController) {
         modifier = Modifier.fillMaxSize()
     ) {
 
-        Banner(modifier = Modifier.layoutId("profile_banner"))
+        Banner(modifier = Modifier.layoutId("profile_banner"), user)
         ProfileTopBar(
             navController = navController,
             modifier = Modifier.layoutId("profile_top_bar")
@@ -79,16 +79,7 @@ fun Profile(navController: NavController) {
         ProfileButton(modifier = Modifier.layoutId("profile_button"), isMyProfile = true)
         ProfileContent(
             modifier = Modifier.layoutId("profile_user_content"),
-            user = User(
-                name = "geovani 🥦",
-                username = "iamageo",
-                avatar = 0,
-                banner = 0,
-                bio = "24y | Android Developer | Computer Engineer | Kotlin & Flutter",
-                following = 31,
-                followers = 33,
-                verified = false,
-            )
+            user = user
         )
         TabLayout(modifier = Modifier.layoutId("tablayout"))
 

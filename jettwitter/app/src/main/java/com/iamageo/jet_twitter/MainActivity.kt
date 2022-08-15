@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.iamageo.jet_twitter.data.model.User
 import com.iamageo.jet_twitter.ui.home.Home
 import com.iamageo.jet_twitter.ui.profile.Profile
 import com.iamageo.jet_twitter.theme.JettwitterTheme
@@ -41,13 +42,24 @@ fun JetTwitterAppContent() {
     val state = rememberScaffoldState()
     val scope = rememberCoroutineScope()
     val navController = rememberNavController()
+    val user = User(
+        name = "geovani 🥦",
+        username = "iamageo",
+        avatar = R.drawable.profile,
+        banner =R.drawable.wallpaper,
+        bio = "24y | Android Developer | Computer Engineer | Kotlin & Flutter",
+        following = 31,
+        followers = 33,
+        verified = false,
+    )
+
 
     NavHost(navController = navController, startDestination = "home"){
             composable("home") {
-                Home(scope, state, navController)
+                Home(scope, state, navController, user)
             }
             composable("profile") {
-                Profile(navController)
+                Profile(navController, user)
             }
     }
 

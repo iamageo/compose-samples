@@ -7,6 +7,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavHostController
 import kotlinx.coroutines.CoroutineScope
 import com.iamageo.jet_twitter.R
+import com.iamageo.jet_twitter.data.model.User
 import com.iamageo.jet_twitter.ui.components.multifab.*
 import com.iamageo.jet_twitter.theme.TwitterBlue
 
@@ -15,7 +16,8 @@ import com.iamageo.jet_twitter.theme.TwitterBlue
 fun Home(
     coroutineScope: CoroutineScope,
     scaffoldState: ScaffoldState,
-    navController: NavHostController
+    navController: NavHostController,
+    user: User
 ) {
 
     Scaffold(
@@ -45,7 +47,7 @@ fun Home(
                 onFabItemClicked = { println(it) }
             )
         },
-        drawerContent = { AppDrawer(navController) },
+        drawerContent = { AppDrawer(navController, user) },
         bottomBar = { BottomBar() },
         topBar = { TopAppBar(coroutineScope, scaffoldState) }
     ) {

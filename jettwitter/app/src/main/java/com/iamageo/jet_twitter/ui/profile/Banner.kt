@@ -9,11 +9,12 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.iamageo.jet_twitter.R
+import com.iamageo.jet_twitter.data.model.User
 
 @Composable
-fun Banner(modifier: Modifier = Modifier) {
+fun Banner(modifier: Modifier = Modifier, user: User) {
     Image(
-        painterResource(id = R.drawable.wallpaper),
+        painterResource(id = user.banner),
         modifier = modifier
             .height(140.dp)
             .fillMaxWidth(),

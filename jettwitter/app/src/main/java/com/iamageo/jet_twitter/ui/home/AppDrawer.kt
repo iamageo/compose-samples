@@ -25,7 +25,7 @@ import com.iamageo.jet_twitter.data.model.User
 import com.iamageo.jet_twitter.ui.components.user.UserInfo
 
 @Composable
-fun AppDrawer(navController: NavController) {
+fun AppDrawer(navController: NavController, user: User) {
     Surface(color = Color.White) {
         Column {
             Column(modifier = Modifier.padding(start = 16.dp, top = 16.dp, end = 16.dp)) {
@@ -42,16 +42,7 @@ fun AppDrawer(navController: NavController) {
                 )
                 Spacer(modifier = Modifier.size(2.dp))
                 UserInfo(
-                    user = User(
-                        name = "Geovani 🥦",
-                        username = "iamageo",
-                        avatar = 0,
-                        banner = 0,
-                        bio = "I love coding!",
-                        following = 31,
-                        followers = 33,
-                        verified = false,
-                    ),
+                    user = user,
                     showLogoutButton = true,
                     showBio = false,
                     showAdditionalInfo = false,
