@@ -1,17 +1,22 @@
 package com.iamageo.jet_twitter.ui.profile
 
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintSet
 import androidx.navigation.NavController
 import com.google.accompanist.pager.ExperimentalPagerApi
+import com.iamageo.jet_twitter.R
 import com.iamageo.jet_twitter.data.model.User
-import com.iamageo.jet_twitter.ui.components.tablayout.TabLayout
+import com.iamageo.jet_twitter.theme.TwitterBlue
+import com.iamageo.tablayout.MagicTabItem
+import com.iamageo.tablayout.MagicTabLayout
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
@@ -61,6 +66,14 @@ fun Profile(navController: NavController, user: User) {
 
 
     }
+
+    val tabs = listOf(
+        MagicTabItem(title = "Tweets") { TabItem(item = "tweet") },
+        MagicTabItem(title = "Tweets e respostas") { TabItem(item = "tweet e respostas") },
+        MagicTabItem(title = "Mídia") { TabItem(item = "mídia") },
+        MagicTabItem(title = "Curtidas") { TabItem(item = "curtidas") }
+    )
+
     ConstraintLayout(
         constraints,
         modifier = Modifier.fillMaxSize()
@@ -81,8 +94,25 @@ fun Profile(navController: NavController, user: User) {
             modifier = Modifier.layoutId("profile_user_content"),
             user = user
         )
-        TabLayout(modifier = Modifier.layoutId("tablayout"))
-
+        MagicTabLayout(
+            modifier = Modifier.layoutId("tablayout"),
+            tabList = tabs,
+            tabIndicatorColor = TwitterBlue
+        )
     }
 
+}
+
+@Composable
+fun TabItem(item: String) {
+    Column(
+        modifier = Modifier.fillMaxWidth(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            text = item,
+            color = Color.Black,
+        )
+    }
 }

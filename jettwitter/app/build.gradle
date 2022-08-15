@@ -69,4 +69,7 @@ dependencies {
     //tablayout
     implementation "com.google.accompanist:accompanist-pager:0.13.0"
     implementation "com.google.accompanist:accompanist-pager-indicators:0.13.0"
+
+    //magictablayout
+    implementation "com.github.iamageo:MagicTabLayout:1.0.1"
 }
