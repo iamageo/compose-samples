@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Icon
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
@@ -48,8 +49,9 @@ fun TopAppBar(coroutineScope: CoroutineScope, scaffoldState: ScaffoldState) {
                 modifier = Modifier.size(22.dp),
                 contentDescription = stringResource(id = R.string.top_app_bar_description_icon_logo),
             )
-            Image(
+            Icon(
                 painter = painterResource(id = R.drawable.ic_trends),
+                tint = Color.Black,
                 modifier = Modifier.size(24.dp),
                 contentDescription = stringResource(id = R.string.top_app_bar_description_icon_trends),
             )

@@ -1,10 +1,10 @@
 package com.iamageo.jet_twitter.ui.home
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.BottomAppBar
+import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -35,8 +35,9 @@ fun BottomBar() {
 @Composable
 private fun BottomBarIcon(icon: Int) {
     IconButton(onClick = {}) {
-        Image(
+        Icon(
             painter = painterResource(id = icon),
+            tint = Color.Black,
             modifier = Modifier.size(24.dp),
             contentDescription = stringResource(id = R.string.bottom_app_bar_icon_description)
         )
