@@ -8,5 +8,11 @@ data class User(
     val bio: String,
     val following: Int,
     val followers: Int,
-    val verified: Boolean
+    val verified: Boolean,
+    val moreInfo: UserMoreInfo
+)
+
+data class UserMoreInfo(
+    val firstLogin: String,
+    val likInProfile: String
 )

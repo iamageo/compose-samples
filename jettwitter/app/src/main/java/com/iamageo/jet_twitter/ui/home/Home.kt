@@ -1,15 +1,25 @@
 package com.iamageo.jet_twitter.ui.home
 
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.Divider
 import androidx.compose.material.Scaffold
 import androidx.compose.material.ScaffoldState
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import kotlinx.coroutines.CoroutineScope
 import com.iamageo.jet_twitter.R
 import com.iamageo.jet_twitter.data.model.User
-import com.iamageo.jet_twitter.ui.components.multifab.*
+import com.iamageo.jet_twitter.dummyDataTweet
 import com.iamageo.jet_twitter.theme.TwitterBlue
+import com.iamageo.jet_twitter.ui.components.multifab.FabIcon
+import com.iamageo.jet_twitter.ui.components.multifab.FabOption
+import com.iamageo.jet_twitter.ui.components.multifab.MultiFabItem
+import com.iamageo.jet_twitter.ui.components.multifab.MultiFloatingActionButton
+import com.iamageo.jet_twitter.ui.components.tweet.TweetLayout
+import kotlinx.coroutines.CoroutineScope
 
 
 @Composable
@@ -49,9 +59,18 @@ fun Home(
         },
         drawerContent = { AppDrawer(navController, user) },
         bottomBar = { BottomBar() },
-        topBar = { TopAppBar(coroutineScope, scaffoldState) }
+        topBar = { TopAppBar(coroutineScope, scaffoldState) },
     ) {
+        LazyColumn(
+            modifier = Modifier.padding(bottom = 50.dp)
+        ) {
 
+            items(dummyDataTweet.size) { index ->
+                TweetLayout(tweet = dummyDataTweet[index], coroutineScope, navController)
+                Divider()
+            }
+
+        }
     }
 }
 
