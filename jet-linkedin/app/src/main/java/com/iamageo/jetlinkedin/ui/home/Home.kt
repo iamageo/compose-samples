@@ -14,6 +14,10 @@ fun Home(
     coroutineScope: CoroutineScope
 ) {
     Scaffold(
+        scaffoldState = scaffoldState,
+        drawerContent = {
+            AppDrawer(navController = navController)
+        },
         topBar = {
             TopBar(coroutineScope = coroutineScope, scaffoldState = scaffoldState)
         },
