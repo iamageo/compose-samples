@@ -9,6 +9,7 @@ import androidx.compose.material.Icon
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -65,8 +66,8 @@ fun AppDrawer(navController: NavController) {
                 )
                 Spacer(modifier = Modifier.weight(weight = 1f))
                 Divider()
-                DrawerBottomItem(icon = R.drawable.ic_search, title = "Experimente o Premium grátis")
-                DrawerBottomItem(icon = R.drawable.ic_search, title = "Configurações")
+                DrawerBottomItem(icon = R.drawable.ic_search, title = "Experimente o Premium grátis", isLink = true)
+                DrawerBottomItem(icon = R.drawable.ic_settings, title = "Configurações", isLink = false)
 
             }
         }
@@ -75,20 +76,22 @@ fun AppDrawer(navController: NavController) {
 }
 
 @Composable
-private fun DrawerBottomItem(title: String, icon: Int) {
+private fun DrawerBottomItem(title: String, icon: Int, isLink: Boolean) {
     Row(
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier.fillMaxWidth().padding(top = 16.dp, bottom = 8.dp),
+        verticalAlignment = Alignment.CenterVertically
     ) {
         Icon(
             painter = painterResource(id = icon),
             contentDescription = "icon drawer",
-            modifier = Modifier.size(20.dp)
+            modifier = Modifier.size(20.dp),
+            tint = Color.Black
         )
         Text(
             text = title,
-            style = TextStyle(color = Color.Black, fontSize = 16.sp),
+            style = TextStyle(color = if(isLink) Color.Blue else Color.Black, fontSize = 14.sp),
             fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(top = 16.dp)
+            modifier = Modifier.padding(start = 8.dp)
         )
     }
 }
