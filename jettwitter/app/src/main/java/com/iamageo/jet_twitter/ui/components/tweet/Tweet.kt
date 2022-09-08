@@ -99,16 +99,16 @@ fun TweetAvatarAndInfo(
             contentScale = ContentScale.Crop,
             contentDescription = "User tweet image"
         )
-        Spacer(modifier = Modifier.size(8.dp))
-        Text(
-            text = tweet.user.name,
-            style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 12.sp)
-        )
-        Spacer(modifier = Modifier.size(5.dp))
-        Text(
-            text = "@${tweet.user.username} · ${tweet.timeAgo()}",
-            style = TextStyle(fontSize = 12.sp)
-        )
+            Spacer(modifier = Modifier.size(8.dp))
+            Text(
+                text = tweet.user.name,
+                style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 12.sp)
+            )
+            Spacer(modifier = Modifier.size(5.dp))
+            Text(
+                text = "@${tweet.user.username} · ${tweet.timeAgo()}",
+                style = TextStyle(fontSize = 12.sp)
+            )
     }
 }
 
