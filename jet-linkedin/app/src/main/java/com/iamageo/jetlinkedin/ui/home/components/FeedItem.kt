@@ -3,7 +3,9 @@ package com.iamageo.jetlinkedin.ui.home.components
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Divider
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -36,12 +38,12 @@ fun FeedItem(
     val constraints = ConstraintSet {
         val postTopBar = createRefFor("post_top_bar")
         val postFollowButton = createRefFor("post_follow_button")
-        val postTextAndButton = createRefFor("post_text_and_button")
+        val postTextAndImage = createRefFor("post_text_and_image")
+        val postOptions = createRefFor("post_options")
 
         constrain(postTopBar) {
             top.linkTo(parent.top)
             start.linkTo(parent.start)
-            end.linkTo(parent.end)
         }
 
         constrain(postFollowButton) {
@@ -49,10 +51,16 @@ fun FeedItem(
             end.linkTo(parent.end)
         }
 
-        constrain(postTextAndButton) {
+        constrain(postTextAndImage) {
             top.linkTo(postTopBar.bottom)
             start.linkTo(parent.start)
             end.linkTo(parent.end)
+        }
+
+        constrain(postOptions) {
+            top.linkTo(postTextAndImage.bottom)
+            end.linkTo(parent.end)
+            start.linkTo(parent.start)
         }
 
     }
@@ -64,12 +72,16 @@ fun FeedItem(
     ) {
         PostTopItem(
             linkedinPost,
-            modifier = Modifier.layoutId("post_top_item"),
+            modifier = Modifier.layoutId("post_top_bar"),
             coroutineScope,
             navController
         )
         FollowButton(modifier = Modifier.layoutId("post_follow_button"))
-        PostTextAndImage(linkedinPost = linkedinPost, modifier = Modifier.layoutId("post_text_and_image"))
+        PostTextAndImage(
+            linkedinPost = linkedinPost,
+            modifier = Modifier.layoutId("post_text_and_image")
+        )
+        PostOptions(linkedinPost = linkedinPost, modifier = Modifier.layoutId("post_options"))
     }
 
 }
@@ -84,7 +96,6 @@ fun PostTopItem(
     Row(
         modifier = modifier,
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceAround
     ) {
         Image(
             painter = painterResource(id = R.drawable.profile),
@@ -164,6 +175,78 @@ fun PostTextAndImage(modifier: Modifier = Modifier, linkedinPost: LinkedinPost) 
             )
         }
 
+    }
+}
+
+@Composable
+fun PostOptions(modifier: Modifier = Modifier, linkedinPost: LinkedinPost) {
+    Column(modifier = modifier.padding(4.dp)) {
+
+        LikesReactions(
+            icons = listOf(
+                R.drawable.ic_like_reaction,
+                R.drawable.ic_funny_reaction,
+                R.drawable.ic_idea_reaction
+            )
+        )
+
+        //Comme
+        Row {
+            Divider(modifier = Modifier.padding(top = 4.dp, bottom = 4.dp))
+        }
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 16.dp, end = 16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            PostItem("Curtir", R.drawable.ic_like)
+            PostItem("Comentar", R.drawable.ic_comment)
+            PostItem("Compartilhar", R.drawable.ic_sharing)
+            PostItem("Enviar", R.drawable.ic_send)
+        }
+    }
+}
+
+@Composable
+private fun PostItem(title: String, icon: Int) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Icon(
+            painter = painterResource(id = icon),
+            contentDescription = "",
+            tint = Color.DarkGray,
+            modifier = Modifier.size(18.dp)
+        )
+        Text(
+            text = title, color = Color.DarkGray,
+            style = TextStyle(fontSize = 10.sp, fontWeight = FontWeight.Bold)
+        )
+    }
+}
+
+@Composable
+fun LikesReactions(icons: List<Int>) {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        LazyRow {
+            items(icons.size) { idx ->
+                Image(
+                    painter = painterResource(id = icons[idx]),
+                    contentDescription = "",
+                    modifier = Modifier.size(20.dp),
+                )
+            }
+        }
+        Text(
+            text = "1 comentário", color = Color.DarkGray,
+            style = TextStyle(fontSize = 10.sp, fontWeight = FontWeight.Bold)
+        )
     }
 }
 
