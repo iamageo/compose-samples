@@ -66,7 +66,7 @@ fun AppDrawer(navController: NavController) {
                 )
                 Spacer(modifier = Modifier.weight(weight = 1f))
                 Divider()
-                DrawerBottomItem(icon = R.drawable.ic_search, title = "Experimente o Premium grátis", isLink = true)
+                DrawerBottomItem(icon = R.drawable.ic_premium, title = "Experimente o Premium grátis", isLink = true)
                 DrawerBottomItem(icon = R.drawable.ic_settings, title = "Configurações", isLink = false)
 
             }
@@ -81,11 +81,10 @@ private fun DrawerBottomItem(title: String, icon: Int, isLink: Boolean) {
         modifier = Modifier.fillMaxWidth().padding(top = 16.dp, bottom = 8.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Icon(
+        Image(
             painter = painterResource(id = icon),
             contentDescription = "icon drawer",
             modifier = Modifier.size(20.dp),
-            tint = Color.Black
         )
         Text(
             text = title,
