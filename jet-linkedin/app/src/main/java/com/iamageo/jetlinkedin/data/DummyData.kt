@@ -22,5 +22,14 @@ val dummyFeedData: List<LinkedinPost> = listOf(
         comments = 0,
         sharings = 0,
         timestamp = 1660680212000
+    ),
+    LinkedinPost(
+        user = dummyUserData[0],
+        description = "Estudando Jetpack Compose",
+        image = null,
+        likes = 5,
+        comments = 2,
+        sharings = 1,
+        timestamp = 1660680212000
     )
 )

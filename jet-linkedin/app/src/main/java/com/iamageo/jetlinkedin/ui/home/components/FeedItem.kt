@@ -187,10 +187,10 @@ fun PostOptions(modifier: Modifier = Modifier, linkedinPost: LinkedinPost) {
                 R.drawable.ic_like_reaction,
                 R.drawable.ic_funny_reaction,
                 R.drawable.ic_idea_reaction
-            )
+            ),
+            linkedinPost = linkedinPost
         )
 
-        //Comme
         Row {
             Divider(modifier = Modifier.padding(top = 4.dp, bottom = 4.dp))
         }
@@ -228,7 +228,7 @@ private fun PostItem(title: String, icon: Int) {
 }
 
 @Composable
-fun LikesReactions(icons: List<Int>) {
+fun LikesReactions(icons: List<Int>, linkedinPost: LinkedinPost) {
     Row(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
@@ -243,10 +243,33 @@ fun LikesReactions(icons: List<Int>) {
                 )
             }
         }
-        Text(
-            text = "1 comentário", color = Color.DarkGray,
-            style = TextStyle(fontSize = 10.sp, fontWeight = FontWeight.Bold)
-        )
+        Row {
+            if (linkedinPost.likes != 0) {
+                Text(
+                    text = "${linkedinPost.likes} comentário" + getLikesOrCommentsString(
+                        linkedinPost.likes
+                    ),
+                    color = Color.DarkGray,
+                    style = TextStyle(fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                )
+            }
+            Text(
+                text = " • ", color = Color.DarkGray,
+                style = TextStyle(fontSize = 10.sp, fontWeight = FontWeight.Bold)
+            )
+            if (linkedinPost.comments != 0) {
+                Text(
+                    text = "${linkedinPost.comments} compartilhamento" + getLikesOrCommentsString(
+                        linkedinPost.comments
+                    ), color = Color.DarkGray,
+                    style = TextStyle(fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                )
+            }
+        }
     }
+}
+
+fun getLikesOrCommentsString(numberOfLikesOrSharings: Int): String {
+    return if (numberOfLikesOrSharings != 1) "s" else ""
 }
 
