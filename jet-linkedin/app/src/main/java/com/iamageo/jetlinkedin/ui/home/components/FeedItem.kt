@@ -54,7 +54,6 @@ fun FeedItem(
         constrain(postTextAndImage) {
             top.linkTo(postTopBar.bottom)
             start.linkTo(parent.start)
-            end.linkTo(parent.end)
         }
 
         constrain(postOptions) {
@@ -162,11 +161,14 @@ private fun FollowButton(modifier: Modifier = Modifier) {
 
 @Composable
 fun PostTextAndImage(modifier: Modifier = Modifier, linkedinPost: LinkedinPost) {
-    Column(modifier = modifier) {
+    Column(
+        modifier = modifier,
+        horizontalAlignment = Alignment.Start
+    ) {
         Text(
             text = linkedinPost.description,
             color = Black,
-            style = TextStyle(fontSize = 12.sp)
+            style = TextStyle(fontSize = 12.sp), modifier = Modifier.padding(bottom = 8.dp)
         )
         if (linkedinPost.image != null) {
             Image(

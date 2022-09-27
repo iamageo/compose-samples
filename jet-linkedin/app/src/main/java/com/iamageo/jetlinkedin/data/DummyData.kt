@@ -25,7 +25,7 @@ val dummyFeedData: List<LinkedinPost> = listOf(
     ),
     LinkedinPost(
         user = dummyUserData[0],
-        description = "Estudando Jetpack Compose",
+        description = "Guia para modularização de Apps Android.",
         image = null,
         likes = 5,
         comments = 2,
