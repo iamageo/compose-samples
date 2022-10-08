@@ -1,5 +1,7 @@
 package com.iamageo.jetlinkedin.ui.home
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Scaffold
@@ -11,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.iamageo.jetlinkedin.data.dummyFeedData
 import com.iamageo.jetlinkedin.ui.home.components.FeedItem
+import com.iamageo.jetlinkedin.ui.theme.linkedinBackground
 import kotlinx.coroutines.CoroutineScope
 
 @Composable
@@ -31,18 +34,20 @@ fun Home(
             BottomBar(backgroundColor = Color.Transparent)
         }
     ) {
-        LazyColumn(
-            modifier = Modifier.padding(2.dp)
-        )
-        {
-            items(dummyFeedData.size) { idx ->
-                FeedItem(
-                    linkedinPost = dummyFeedData[idx],
-                    coroutineScope = coroutineScope,
-                    navController = navController
-                )
-            }
+        Box(modifier = Modifier.background(color = linkedinBackground)) {
+            LazyColumn(
+                modifier = Modifier
+            )
+            {
+                items(dummyFeedData.size) { idx ->
+                    FeedItem(
+                        linkedinPost = dummyFeedData[idx],
+                        coroutineScope = coroutineScope,
+                        navController = navController
+                    )
+                }
 
+            }
         }
     }
 }

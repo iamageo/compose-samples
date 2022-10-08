@@ -1,6 +1,7 @@
 package com.iamageo.jetlinkedin.ui.home.components
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
@@ -67,7 +68,7 @@ fun FeedItem(
     ConstraintLayout(
         constraints, modifier = Modifier
             .fillMaxSize()
-            .padding(8.dp)
+            .padding(top = 8.dp).background(color = Color.White)
     ) {
         PostTopItem(
             linkedinPost,
@@ -93,13 +94,13 @@ fun PostTopItem(
     navController: NavController
 ) {
     Row(
-        modifier = modifier,
+        modifier = modifier.padding(top = 8.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Image(
             painter = painterResource(id = linkedinPost.user.avatar),
             contentDescription = "",
-            modifier = Modifier
+            modifier = Modifier.padding(start = 8.dp)
                 .size(40.dp)
                 .clip(shape = RoundedCornerShape(25.dp))
                 .clickable {
@@ -143,7 +144,7 @@ fun PostTopItem(
 @Composable
 private fun FollowButton(modifier: Modifier = Modifier) {
     Row(
-        modifier = modifier,
+        modifier = modifier.padding(end= 8.dp, top = 8.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Icon(
@@ -168,7 +169,7 @@ fun PostTextAndImage(modifier: Modifier = Modifier, linkedinPost: LinkedinPost) 
         Text(
             text = linkedinPost.description,
             color = Black,
-            style = TextStyle(fontSize = 12.sp), modifier = Modifier.padding(bottom = 8.dp)
+            style = TextStyle(fontSize = 12.sp), modifier = Modifier.padding(start = 8.dp, bottom = 8.dp),
         )
         if (linkedinPost.image != null) {
             Image(
@@ -185,17 +186,19 @@ fun PostOptions(modifier: Modifier = Modifier, linkedinPost: LinkedinPost) {
     Column(modifier = modifier.padding(4.dp)) {
 
         LikesReactions(
+            modifier = Modifier.padding(top = 8.dp),
             icons = listOf(
                 R.drawable.ic_like_reaction,
                 R.drawable.ic_funny_reaction,
                 R.drawable.ic_idea_reaction
             ),
-            linkedinPost = linkedinPost
+            linkedinPost = linkedinPost,
         )
 
         Row {
-            Divider(modifier = Modifier.padding(top = 4.dp, bottom = 4.dp))
+            Divider(modifier = Modifier.padding(top = 8.dp, bottom = 8.dp))
         }
+
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -203,7 +206,7 @@ fun PostOptions(modifier: Modifier = Modifier, linkedinPost: LinkedinPost) {
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            PostItem("Curtir", R.drawable.ic_like)
+            PostItem("Gostei", R.drawable.ic_like)
             PostItem("Comentar", R.drawable.ic_comment)
             PostItem("Compartilhar", R.drawable.ic_sharing)
             PostItem("Enviar", R.drawable.ic_send)
@@ -230,20 +233,30 @@ private fun PostItem(title: String, icon: Int) {
 }
 
 @Composable
-fun LikesReactions(icons: List<Int>, linkedinPost: LinkedinPost) {
+fun LikesReactions(modifier: Modifier = Modifier, icons: List<Int>, linkedinPost: LinkedinPost) {
     Row(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        LazyRow {
-            items(icons.size) { idx ->
-                Image(
-                    painter = painterResource(id = icons[idx]),
-                    contentDescription = "",
-                    modifier = Modifier.size(20.dp),
-                )
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            LazyRow {
+                items(icons.size) { idx ->
+                    Image(
+                        painter = painterResource(id = icons[idx]),
+                        contentDescription = "",
+                        modifier = Modifier.size(20.dp),
+                    )
+                }
             }
+            Text(
+                text = linkedinPost.likes.toString(), color = Color.DarkGray,
+                modifier = Modifier.padding(start = 8.dp),
+                style = TextStyle(fontSize = 10.sp, fontWeight = FontWeight.Bold
+                    )
+            )
         }
         Row {
             if (linkedinPost.likes != 0) {
