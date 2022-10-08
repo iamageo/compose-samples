@@ -97,7 +97,7 @@ fun PostTopItem(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Image(
-            painter = painterResource(id = R.drawable.profile),
+            painter = painterResource(id = linkedinPost.user.avatar),
             contentDescription = "",
             modifier = Modifier
                 .size(40.dp)
