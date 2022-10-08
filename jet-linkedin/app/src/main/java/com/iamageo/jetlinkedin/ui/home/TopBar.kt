@@ -19,6 +19,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import com.iamageo.jetlinkedin.R
+import com.iamageo.jetlinkedin.data.dummyUserData
 import com.iamageo.jetlinkedin.ui.theme.searchBarColor
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -37,7 +38,7 @@ fun TopBar(coroutineScope: CoroutineScope, scaffoldState: ScaffoldState) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             Image(
-                painter = painterResource(id = R.drawable.profile),
+                painter = painterResource(id = dummyUserData[0].avatar),
                 modifier = Modifier
                     .size(34.dp)
                     .clip(shape = RoundedCornerShape(17.dp))

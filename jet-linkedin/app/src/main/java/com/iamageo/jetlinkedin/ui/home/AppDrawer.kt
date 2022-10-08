@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.iamageo.jetlinkedin.R
+import com.iamageo.jetlinkedin.data.dummyUserData
 
 @Composable
 fun AppDrawer() {
@@ -32,7 +33,7 @@ fun AppDrawer() {
                 modifier = Modifier.padding(16.dp),
             ) {
                 Image(
-                    painter = painterResource(id = R.drawable.profile),
+                    painter = painterResource(id = dummyUserData[0].avatar),
                     modifier = Modifier
                         .size(50.dp)
                         .clip(shape = RoundedCornerShape(25.dp))
@@ -43,7 +44,7 @@ fun AppDrawer() {
                     contentDescription = ""
                 )
                 Text(
-                    text = "Geovani Amaral",
+                    text = dummyUserData[0].name,
                     style = TextStyle(color = Color.Black, fontSize = 16.sp),
                     fontWeight = FontWeight.Bold
                 )
