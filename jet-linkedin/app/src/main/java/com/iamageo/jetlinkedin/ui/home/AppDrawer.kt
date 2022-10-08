@@ -23,7 +23,7 @@ import androidx.navigation.NavController
 import com.iamageo.jetlinkedin.R
 
 @Composable
-fun AppDrawer(navController: NavController) {
+fun AppDrawer() {
     Surface(
         color = Color.White
     ) {

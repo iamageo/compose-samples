@@ -22,7 +22,7 @@ fun Home(
     Scaffold(
         scaffoldState = scaffoldState,
         drawerContent = {
-            AppDrawer(navController = navController)
+            AppDrawer()
         },
         topBar = {
             TopBar(coroutineScope = coroutineScope, scaffoldState = scaffoldState)
