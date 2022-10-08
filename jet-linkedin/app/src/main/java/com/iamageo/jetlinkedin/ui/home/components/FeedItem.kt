@@ -173,8 +173,10 @@ fun PostTextAndImage(modifier: Modifier = Modifier, linkedinPost: LinkedinPost) 
         )
         if (linkedinPost.image != null) {
             Image(
-                painter = painterResource(id = R.drawable.profile_banner),
-                contentDescription = ""
+                contentScale = ContentScale.FillWidth,
+                painter = painterResource(id = linkedinPost.image),
+                contentDescription = "",
+                modifier = Modifier.fillMaxWidth()
             )
         }
 

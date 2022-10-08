@@ -22,7 +22,7 @@ val dummyUserData: List<User> = listOf(
 val dummyFeedData: List<LinkedinPost> = listOf(
     LinkedinPost(
         user = dummyUserData[1],
-        description = "\uD83C\uDF89 #AndroidDevSummit is back, and this year we're coming to you ...",
+        description = "\uD83C\uDF89 #AndroidDevSummit is back, and this year we're coming..",
         image = R.drawable.android_developers_post,
         likes = 350,
         comments = 3,
