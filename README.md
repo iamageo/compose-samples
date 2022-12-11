@@ -2,7 +2,7 @@
 This repository contain examples of ui in jetpack compose.
 
 - [x] Twitter
-- [x] LinkedIn (In progress)
+- [x] LinkedIn
 - [ ] Spotify
 
 ## Note 📌
